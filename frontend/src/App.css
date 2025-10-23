@@ -1,38 +1,131 @@
-.App {
-  text-align: center;
+/* App.css - modern subtle styling */
+
+.app-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(16, 24, 40, 0.08);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-title {
+  margin: 0 0 18px 0;
+  color: #0f172a;
+  font-size: 1.6rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* vertical divider between columns (subtle) */
+.columns {
+  position: relative;
+}
+
+.columns::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 50%;
+  width: 1px;
+  background: #e6e9ef;
+  transform: translateX(-0.5px);
+  border-radius: 1px;
+  z-index: 0;
+}
+
+.left, .right {
+  padding: 12px 8px;
+  position: relative; /* ensures contents appear above divider */
+  z-index: 1;
+}
+
+.left h2, .right h2 {
+  font-size: 1.1rem;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.task-form .label {
+  display: block;
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+.label-text {
+  display: block;
+  margin-bottom: 6px;
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+.task-form input,
+.task-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #e6e9ef;
+  border-radius: 8px;
+  background: #fbfdff;
+  font-size: 0.95rem;
+  color: #0f172a;
+  box-sizing: border-box;
+}
+
+.task-form textarea { resize: vertical; }
+
+.primary {
+  background: #2563eb;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.primary:disabled { opacity: 0.6; cursor: default; }
+
+.muted { color: #94a3b8; }
+
+.task-list {
   display: flex;
   flex-direction: column;
+  gap: 12px;
+}
+
+.task-card {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  background: linear-gradient(180deg, #f8fafc 0%, #f3f4f6 100%);
+  padding: 14px 18px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(2,6,23,0.06);
 }
 
-.App-link {
-  color: #61dafb;
+.task-title { margin: 0 0 6px 0; font-size: 1rem; color: #0f172a; }
+.task-desc { margin: 0; color: #475569; font-size: 0.9rem; }
+
+.card-actions { margin-left: 16px; }
+
+.secondary {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.secondary:disabled { opacity: 0.6; cursor: default; }
+
+/* small responsive tweak */
+@media (max-width: 800px) {
+  .columns { grid-template-columns: 1fr; }
+  .columns::before { display: none; }
 }

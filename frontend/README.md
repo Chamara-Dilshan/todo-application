@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Branding / Browser title
+
+To change the browser tab title, edit `public/index.html` and update the `<title>` tag.
+
+To replace the app icon shown in the browser tab and on mobile/home screen, replace the files in `public/`:
+- `favicon.ico` (browser tab)
+- `logo192.png` and `logo512.png` (mobile/home screen and manifest)
+
+After replacing the files, restart the dev server (`npm start`) to see the changes.

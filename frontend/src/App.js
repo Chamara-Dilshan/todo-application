@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useRef } from "react";
+import TaskForm from "./components/TaskForm";
+import TaskList from "./components/TaskList";
+import "./App.css";
 
 function App() {
+  // We'll use a ref to hold a refresh function exposed by TaskList
+  const refreshRef = useRef(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App app-container">
+      <h1 className="app-title">Todo Application</h1>
+
+      <div className="columns">
+        <div className="left">
+          <h2>Add a Task</h2>
+          <TaskForm onCreated={() => refreshRef.current && refreshRef.current()} />
+        </div>
+        <div className="right">
+          <h2>Recent Tasks</h2>
+          <TaskList exposeRefresh={(fn) => (refreshRef.current = fn)} />
+        </div>
+      </div>
     </div>
   );
 }

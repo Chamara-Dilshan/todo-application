@@ -1,18 +1,22 @@
-/* App.css - modern subtle styling */
-
 .app-container {
   max-width: 1100px;
   margin: 40px auto;
-  padding: 24px;
+  padding: 32px;
   background: #fff;
-  border-radius: 12px;
+  border-radius: 16px;
   box-shadow: 0 8px 30px rgba(16, 24, 40, 0.08);
+  border: 1px solid rgba(148, 163, 184, 0.1);
 }
 
 .app-title {
-  margin: 0 0 18px 0;
-  color: #0f172a;
-  font-size: 1.6rem;
+  margin: 0 0 24px 0;
+  background: linear-gradient(90deg, #0f172a 0%, #334155 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .columns {
@@ -22,7 +26,6 @@
   align-items: start;
 }
 
-/* vertical divider between columns (subtle) */
 .columns {
   position: relative;
 }
@@ -42,7 +45,7 @@
 
 .left, .right {
   padding: 12px 8px;
-  position: relative; /* ensures contents appear above divider */
+  position: relative;
   z-index: 1;
 }
 
@@ -57,12 +60,6 @@
   text-align: left;
   margin-bottom: 12px; 
 }
-
-/* .label-text {
-  display: block;
-  color: #475569;
-  font-size: 0.9rem;
-} */
 
 .task-form input,
 .task-form textarea {
@@ -96,7 +93,6 @@
   box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
 }
 
-/* Input metadata (error messages and character count) */
 .input-meta {
   display: flex;
   justify-content: flex-end;
@@ -131,14 +127,13 @@
 
 .task-form textarea {
   resize: vertical;
-  min-height: 120px; /* Taller textarea */
+  min-height: 200px;
 }
 
-/* right-aligned button container */
 .task-form .button-container {
   display: flex;
   justify-content: flex-end;
-  margin-top: 32px; /* Increased from 16px */
+  margin-top: 32px;
 }
 
 .primary {
@@ -180,27 +175,119 @@
   align-items: center;
   justify-content: space-between;
   background: linear-gradient(180deg, #f8fafc 0%, #f3f4f6 100%);
-  padding: 14px 18px;
-  border-radius: 10px;
+  padding: 16px 20px;
+  border-radius: 12px;
   box-shadow: 0 4px 12px rgba(2,6,23,0.06);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
 }
 
-.task-title { margin: 0 0 6px 0; font-size: 1rem; color: #0f172a; }
-.task-desc { margin: 0; color: #475569; font-size: 0.9rem; }
+.task-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(2,6,23,0.08);
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+.task-card:hover::before {
+  opacity: 1;
+}
+
+.task-card.fade-out {
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+  transition: opacity 0.4s cubic-bezier(.4,0,.2,1), transform 0.4s cubic-bezier(.4,0,.2,1);
+  pointer-events: none;
+}
+
+.card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.task-title {
+  margin: 0 0 8px 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.4;
+}
+
+.task-desc {
+  margin: 0;
+  color: #475569;
+  font-size: 0.925rem;
+  line-height: 1.5;
+  max-width: 560px;
+  overflow-wrap: break-word;
+}
 
 .card-actions { margin-left: 16px; }
 
 .secondary {
   background: #fff;
   border: 1px solid #cbd5e1;
-  padding: 8px 28px;
+  padding: 9px 16px;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 0.925rem;
+  font-weight: 500;
+  color: #475569;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.secondary:disabled { opacity: 0.6; cursor: default; }
+.secondary:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #334155;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
 
-/* small responsive tweak */
+.secondary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.secondary:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.secondary:disabled:has(span) {
+  background: #f8fafc;
+  opacity: 0.8;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #cbd5e1;
+  border-top-color: #64748b;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
 @media (max-width: 800px) {
   .columns { grid-template-columns: 1fr; }
   .columns::before { display: none; }

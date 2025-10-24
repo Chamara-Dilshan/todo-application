@@ -4,7 +4,6 @@ import TaskList from "./components/TaskList";
 import "./App.css";
 
 function App() {
-  // We'll use a ref to hold a refresh function exposed by TaskList
   const refreshRef = useRef(null);
 
   return (

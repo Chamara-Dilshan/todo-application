@@ -1,80 +1,92 @@
-# Getting Started with Create React App
+# Todo Application Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend of the Todo Application, built using React. It allows users to manage their tasks efficiently with a clean and interactive user interface.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Task Management**: Create, view, and manage tasks.
+- **Validation**: Ensures tasks have valid titles and descriptions.
+- **Animations**: Smooth transitions and hover effects for a polished user experience.
+- **Error Handling**: Graceful handling of API errors.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React**: For building the user interface.
+- **Axios**: For making API requests.
+- **Jest & React Testing Library**: For testing components.
+- **CSS**: For styling and animations.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Folder Structure
 
-### `npm test`
+```
+frontend/
+├── public/                 # Static files
+│   ├── index.html          # Main HTML file
+│   ├── manifest.json       # Web app manifest
+│   └── robots.txt          # Robots exclusion file
+├── src/                    # Source files
+│   ├── components/         # React components
+│   │   ├── TaskCard.js     # Displays individual tasks
+│   │   ├── TaskForm.js     # Form for creating tasks
+│   │   └── TaskList.js     # Displays list of tasks
+│   ├── App.js              # Main app component
+│   ├── App.css             # Global styles
+│   ├── index.js            # Entry point
+│   └── api.js              # API functions
+└── package.json            # Project metadata and dependencies
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (v14 or higher)
+- npm (v6 or higher)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Chamara-Dilshan/todo-application.git
+   ```
 
-### `npm run eject`
+2. Navigate to the frontend directory:
+   ```bash
+   cd todo-application/frontend
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Running the Application
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Start the development server:
+   ```bash
+   npm start
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Open your browser and navigate to:
+   ```
+   http://localhost:3000
+   ```
 
-## Learn More
+### Running Tests
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To run the tests:
+```bash
+npm test
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contributing
 
-### Code Splitting
+Contributions are welcome! Please fork the repository and submit a pull request.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## License
 
-### Analyzing the Bundle Size
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-## Branding / Browser title
-
-To change the browser tab title, edit `public/index.html` and update the `<title>` tag.
-
-To replace the app icon shown in the browser tab and on mobile/home screen, replace the files in `public/`:
-- `favicon.ico` (browser tab)
-- `logo192.png` and `logo512.png` (mobile/home screen and manifest)
-
-After replacing the files, restart the dev server (`npm start`) to see the changes.
+Happy coding!

@@ -2,8 +2,6 @@ import { useEffect, useState, useCallback } from "react";
 import { getRecentTasks } from "../api";
 import TaskCard from "./TaskCard";
 
-// TaskList shows up to the most recent 5 tasks. It accepts an `exposeRefresh` prop
-// so parent can trigger a refresh when a new task is created.
 function TaskList({ exposeRefresh }) {
   const [tasks, setTasks] = useState([]);
 

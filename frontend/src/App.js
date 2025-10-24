@@ -8,8 +8,6 @@ function App() {
 
   return (
     <div className="App app-container">
-      {/* <h1 className="app-title">Todo Application</h1> */}
-
       <div className="columns">
         <div className="left">
           <h2>Add a Task</h2>

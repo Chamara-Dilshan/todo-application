@@ -58,7 +58,6 @@ function TaskForm({ onCreated }) {
   return (
     <form onSubmit={handleSubmit} className="task-form">
       <label className="label">
-        {/* <span className="label-text"><span className="required"></span></span> */}
         <input
           placeholder="Enter Task Title"
           maxLength={TITLE_MAX_LENGTH}
@@ -82,7 +81,6 @@ function TaskForm({ onCreated }) {
       </label>
 
       <label className="label">
-        {/* <span className="label-text"><span className="required"></span></span> */}
         <textarea
           placeholder="Enter Task Description"
           maxLength={DESC_MAX_LENGTH}

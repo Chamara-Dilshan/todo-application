@@ -82,4 +82,14 @@ public class TaskServiceTest {
         assertEquals(Status.COMPLETED, task.getStatus());
         verify(taskRepository, times(1)).save(task);
     }
+
+    @Test
+    void testMarkTaskAsDoneNotFound() {
+        when(taskRepository.findById(1L)).thenReturn(java.util.Optional.empty());
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> taskService.markDone(1L));
+
+        assertEquals("Task not found", exception.getMessage());
+        verify(taskRepository, never()).save(any(Task.class));
+    }
 }

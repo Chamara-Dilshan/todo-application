@@ -11,10 +11,9 @@ function TaskCard({ task, onDone }) {
       setLoading(true);
       await markTaskAsDone(task.id);
       setRemoving(true);
-      // Wait for animation before removing from DOM
       setTimeout(() => {
         if (onDone) onDone();
-      }, 400); // match CSS animation duration
+      }, 400); 
     } catch (err) {
       console.error("Failed to mark task done", err);
     } finally {

@@ -16,8 +16,8 @@ public class TaskService {
 
     @Transactional
     public Task create(Task task) {
-        task.setId(null);  // Ensure it's a new task
-        task.setStatus(Status.PENDING);  // Default status
+        task.setId(null); 
+        task.setStatus(Status.PENDING); 
         return repository.save(task);
     }
 

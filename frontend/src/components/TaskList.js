@@ -8,7 +8,6 @@ function TaskList({ exposeRefresh }) {
   const refresh = useCallback(async () => {
     try {
       const { data } = await getRecentTasks();
-      // ensure only most recent 5 tasks are shown
       setTasks(Array.isArray(data) ? data.slice(0, 5) : []);
     } catch (err) {
       console.error("Failed to load tasks", err);
@@ -20,7 +19,6 @@ function TaskList({ exposeRefresh }) {
     refresh();
   }, [refresh]);
 
-  // expose refresh to parent
   useEffect(() => {
     if (exposeRefresh) exposeRefresh(refresh);
   }, [exposeRefresh, refresh]);

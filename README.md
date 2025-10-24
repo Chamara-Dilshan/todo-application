@@ -50,22 +50,20 @@ docker compose down -v
 
 If you encounter any issues, here are a few common problems and their solutions:
 
-1. Port Already in Use
-```
-If you see errors related to port conflicts (e.g., 8080, 3306, or 80), ensure that nothing else is using these ports. This might happen if you have another MySQL server, web server, or application already running on those ports.
+Port Already in Use:
 
-Solution: Stop any conflicting services or change the port mappings in the docker-compose.yml file.
-```
+- If you see errors related to port conflicts (e.g., 8080, 3306, or 80), ensure that nothing else is using these ports. This might happen if you have another MySQL server, web server, or application already running on those ports.
 
-2. Permission Issues with Docker
+- Solution: Stop any conflicting services or change the port mappings in the docker-compose.yml file.
 
-```
-On some systems, Docker might not have the required permissions to bind to the specified ports.
 
-Solution: Ensure that Docker has the correct permissions to bind to these ports or run Docker with elevated privileges (e.g., as an administrator).
-```
+Permission Issues with Docker:
+
+- On some systems, Docker might not have the required permissions to bind to the specified ports.
+
+- Solution: Ensure that Docker has the correct permissions to bind to these ports or run Docker with elevated privileges (e.g., as an administrator).
+
 ---
-
 ## Project structure
 
 ```

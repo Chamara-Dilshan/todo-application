@@ -24,7 +24,7 @@ function TaskList({ exposeRefresh }) {
   }, [exposeRefresh, refresh]);
 
   if (!tasks || tasks.length === 0) {
-    return <p className="muted">No tasks yet</p>;
+    return <p className="muted">No Tasks Yet</p>;
   }
 
   return (
